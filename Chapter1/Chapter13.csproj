@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{46B7CC56-6921-40F0-B8AD-FCACE9109DB4}</ProjectGuid>
+    <ProjectGuid>{F99DBA4A-3CA5-4F64-82A6-6E2AE775B0C8}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Chapter1</RootNamespace>
-    <AssemblyName>Chapter1</AssemblyName>
+    <RootNamespace>Chapter13</RootNamespace>
+    <AssemblyName>Chapter13</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -54,10 +54,9 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="HitRecord.cs" />
-    <Compile Include="Hitable.cs" />
-    <Compile Include="HitableList.cs" />
+    <Compile Include="Hittable.cs" />
+    <Compile Include="hittableList.cs" />
     <Compile Include="Material.cs" />
-    <Compile Include="MovingSphere.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Ray.cs" />
@@ -87,9 +86,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Chapter13.csproj" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
