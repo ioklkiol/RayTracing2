@@ -9,7 +9,6 @@ public class BVHNode : IHitable
     private IHitable left;
     private IHitable right;
     private AABB box;
-
     public BVHNode(List<IHitable> l, int n, double time0, double time1)
     {
         AABB boxLeft, boxRight;
@@ -23,6 +22,7 @@ public class BVHNode : IHitable
                     throw new Exception();
                 return boxLeft.Min.X.CompareTo(boxRight.Min.X);
             });
+
         }
         else if (axis == 1)
         {
@@ -60,11 +60,9 @@ public class BVHNode : IHitable
         box = SurroundingBox(boxLeft, boxRight);
 
     }
-
-
-    public bool BoundingBox(double t0, double t1, out AABB b)
+    public bool BoundingBox(double t0, double t1, out AABB box)
     {
-        b = this.box;
+        box = this.box;
         return true;
     }
 

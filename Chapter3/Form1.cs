@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Chapter2
+namespace Chapter3
 {
     public partial class Form1 : Form
     {
@@ -64,9 +64,9 @@ namespace Chapter2
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            int nx = 800;                       //渲染这一章的图需要的时间比较长，可能需要四五个小时，建议在relese模式下进行，也可以改小分辨率和采样率
-            int ny = 400;
-            int ns = 100;
+            int nx = 200;                       //渲染这一章的图需要的时间比较长，可能需要四五个小时，建议在relese模式下进行，也可以改小分辨率和采样率
+            int ny = 100;
+            int ns = 10;
 
             Bitmap bmp = new Bitmap(nx, ny);
 
@@ -78,7 +78,7 @@ namespace Chapter2
                 (double)nx / (double)ny, aperture, 0.7 * diskToFocus,0,1);
 
 
-            HitableList world = RandomScene();
+            HitableList world = TwoSpheres();
             for (int j = 0; j < ny; j++)
             {
                 for (int i = 0; i < nx; i++)
@@ -104,50 +104,16 @@ namespace Chapter2
             pictureBox1.BackgroundImage = bmp;
         }
 
-        private HitableList RandomScene()
+        private HitableList TwoSpheres()
         {
             List<IHitable> list = new List<IHitable>();
             Texture checker = new CheckerTexture(
                 new ConstantTexture(new Vector3D(0.2, 0.3, 0.1)),
                 new ConstantTexture(new Vector3D(0.9, 0.9, 0.9)));
                 
-            list.Add(new Sphere(new Vector3D(0, -1000, 0), 1000, new Lambertian(checker)));
-            for (int a = -11; a < 11; a++)
-            {
-                for (int b = -11; b < 11; b++)
-                {
-                    double chooseMat = RandomDouble();
-                    Vector3D center = new Vector3D(a + 0.9 * RandomDouble(), 0.2, b + 0.9 * RandomDouble());
-                    if ((center - new Vector3D(4, 0.2, 0)).Length() > 0.9)
-                    {
-                        if (chooseMat < 0.8)
-                        {
-                            list.Add(new MovingSphere(center,center+new Vector3D(0,0.5*RandomDouble(),0),0,1, 0.2, 
-                                new Lambertian(new ConstantTexture( new Vector3D(
-                                                            RandomDouble() * RandomDouble(),
-                                                            RandomDouble() * RandomDouble(),
-                                                            RandomDouble() * RandomDouble())))));
-                        }
-                        else if (chooseMat < 0.95)
-                        {
-                            list.Add(new Sphere(center, 0.2, new Metal(new ConstantTexture( new Vector3D(
-                                                                0.5 * (1 + RandomDouble()),
-                                                                0.5 * (1 + RandomDouble()),
-                                                                0.5 * (1 + RandomDouble()))),
-                                                                0.5 * (1 + RandomDouble()))));
-                        }
-                        else
-                        {
-                            list.Add(new Sphere(center, 0.2, new Dielectric(1.5)));
-                        }
-                    }
-                }
-            }
-            list.Add(new Sphere(new Vector3D(0, 1, 0), 1, new Dielectric(1.5)));
-            list.Add(new Sphere(new Vector3D(-4, 1, 0), 1, new Lambertian(
-                new ConstantTexture( new Vector3D(0.4, 0.2, 0.1)))));
-            list.Add(new Sphere(new Vector3D(4, 1, 0), 1, new Metal(
-                new ConstantTexture( new Vector3D(0.7, 0.6, 0.5)), 0)));
+            list.Add(new Sphere(new Vector3D(0, -10, 0), 10, new Lambertian(checker)));
+            list.Add(new Sphere(new Vector3D(0, 10, 0), 10, new Lambertian(checker)));
+            
             return new HitableList(list, list.Count);
 
         }
