@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Chapter5
+namespace Picture6
 {
     public partial class Form1 : Form
     {
@@ -56,8 +56,8 @@ namespace Chapter5
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            int nx = 800;                       //渲染这一章的图需要的时间比较长，可能需要四五个小时，建议在relese模式下进行，也可以改小分辨率和采样率
-            int ny = 400;
+            int nx = 200;                       
+            int ny = 100;
             int ns = 100;
 
             Bitmap bmp = new Bitmap(nx, ny);
@@ -98,7 +98,7 @@ namespace Chapter5
 
         private HitableList TwoPerlinSpheres()
         {
-            Texture pertext = new NoiseTexture();
+            Texture pertext = new NoiseTexture(5);
             List<IHitable> list = new List<IHitable>();
            
                 
