@@ -126,7 +126,7 @@ public class YZRect : IHitable
         double t = (k - r.Origin.X) / r.Direction.X;
         if (t < tMin || t > tMax)
             return false;
-        double y = r.Origin.X + t * r.Direction.X;
+        double y = r.Origin.Y + t * r.Direction.Y;
         double z = r.Origin.Z + t * r.Direction.Z;
         if (y < y0 || y > y1 || z < z0 || z > z1)
             return false;

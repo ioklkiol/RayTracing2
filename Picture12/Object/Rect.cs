@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 //XY平面的矩形
 public class XYRect : IHitable
 {
-    private float x0;
-    private float x1;
-    private float y0;
-    private float y1;
-    private float k;
+    private double x0;
+    private double x1;
+    private double y0;
+    private double y1;
+    private double k;
     private Material mat;
     public XYRect() { }
-    public XYRect(float x0, float x1, float y0, float y1, float k, Material mat)
+    public XYRect(double x0, double x1, double y0, double y1, double k, Material mat)
     {
         this.x0 = x0;
         this.x1 = x1;
@@ -52,14 +52,14 @@ public class XYRect : IHitable
 //XZ平面上的矩形
 public class XZRect : IHitable
 {
-    private float x0;
-    private float x1;
-    private float z0;
-    private float z1;
-    private float k;
+    private double x0;
+    private double x1;
+    private double z0;
+    private double z1;
+    private double k;
     private Material mat;
     public XZRect() { }
-    public XZRect(float x0, float x1, float z0, float z1, float k, Material mat)
+    public XZRect(double x0, double x1, double z0, double z1, double k, Material mat)
     {
         this.x0 = x0;
         this.x1 = x1;
@@ -97,14 +97,14 @@ public class XZRect : IHitable
 //YZ平面上的矩形
 public class YZRect : IHitable
 {
-    private float y0;
-    private float y1;
-    private float z0;
-    private float z1;
-    private float k;
+    private double y0;
+    private double y1;
+    private double z0;
+    private double z1;
+    private double k;
     private Material mat;
     public YZRect() { }
-    public YZRect(float y0, float y1, float z0, float z1, float k, Material mat)
+    public YZRect(double y0, double y1, double z0, double z1, double k, Material mat)
     {
         this.y0 = y0;
         this.y1 = y1;
