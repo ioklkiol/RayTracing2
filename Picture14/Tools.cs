@@ -14,12 +14,6 @@ public class Tools
         int i = r.Next(0, 100000);
         return (double)i / 100000;
     }
-    public static double Get()
-    {
-        long seed = 1;
-        seed = (0x5DEECE66DL * seed + 0xB16) & 0xFFFFFFFFFFFFL;
-        return (seed >> 16) / (float)0x100000000L;
-    }
     //限制数的范围
     public static double Range(double v, double min, double max)
     {
